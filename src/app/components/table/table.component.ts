@@ -9,7 +9,12 @@ import { Hero } from '../../models/hero-type';
 export class TableComponent {
   
   @Input('heroesData') heroesData:Hero[]=[];
+  @Input('totalHeroes') totalHeroes:number=0;
+  @Input('pageSize') pageSize:number=0;
+  @Input('pageIndex') pageIndex:number=0;
 
-  displayedColumns: string[] = ['position', 'name', 'realName', 'specialPower'];
+  isLoading:boolean=true
+
+  displayedColumns: string[] = ['position', 'name', 'realName', 'specialPower','actions'];
   
 }

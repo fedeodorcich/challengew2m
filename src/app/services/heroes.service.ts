@@ -8,8 +8,6 @@ import { Hero } from '../models/hero-type';
 })
 export class HeroesService {
 
-  
-
   constructor(private http: HttpClient) { }
 
   private apiUrl = 'http://localhost:3000/api';

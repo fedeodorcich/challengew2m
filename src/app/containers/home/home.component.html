@@ -2,9 +2,9 @@
 
     <app-search></app-search>
 
-    <app-table></app-table>
+    <app-table [heroesData]="heroesData" [totalHeroes]="totalHeroes" [pageSize]="pageSize" [pageIndex]="pageIndex" />
 
-    <mat-paginator [pageSizeOptions]="[2, 10, 20]" showFirstLastButtons aria-label="Select page of periodic elements">
-    </mat-paginator> //usar viewChild con el paginator para obtener el valor de la pagina actual
+
+
 
 </div>

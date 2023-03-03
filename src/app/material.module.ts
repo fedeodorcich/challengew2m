@@ -12,7 +12,7 @@ import {MatNativeDateModule} from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatGridListModule} from '@angular/material/grid-list';
-
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 
 
@@ -25,7 +25,8 @@ const materialModules = [
     MatNativeDateModule,
     MatFormFieldModule,
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+    MatProgressSpinnerModule
   ];
 
 

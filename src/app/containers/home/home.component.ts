@@ -10,23 +10,24 @@ import { Hero } from '../../models/hero-type';
 export class HomeComponent implements OnInit {
   
   heroesData: Hero[] = [];
+  
+  pageSize:number = 10;
+  pageIndex:number = 0;
+  totalHeroes:number=0;
 
   constructor(private _heroesService: HeroesService) {}
 
   ngOnInit(): void {
-    console.log("onInit called");
     this.getHeroes();
   }
 
   private getHeroes() {
     this._heroesService.getAllHeroes().subscribe(
       res => {
-        console.log(res);
         this.heroesData = res;
+        this.totalHeroes = this.heroesData.length
       },
-      err => {
-        console.log(err);
-      }
+      err => {console.log(err);}
     );
   }
 }

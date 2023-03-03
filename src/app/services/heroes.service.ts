@@ -12,7 +12,7 @@ export class HeroesService {
 
   constructor(private http: HttpClient) { }
 
-  private apiUrl = 'http://localhost:3000/api/my-resource';
+  private apiUrl = 'http://localhost:3000/api';
 
   getAllHeroes(): Observable<Hero[]> {
     return this.http.get<Hero[]>(`${this.apiUrl}/heroes`);

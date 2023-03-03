@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,6 +10,7 @@ import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
 import { TableComponent } from './components/table/table.component';
 import { HomeComponent } from './containers/home/home.component';
+
 
 import { MaterialModule } from './material.module';
 import { SearchComponent } from './components/search/search.component';
@@ -26,7 +28,8 @@ import { SearchComponent } from './components/search/search.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

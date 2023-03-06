@@ -83,52 +83,6 @@
       "name": "Green Arrow",
       "realName": "Oliver Queen",
       "specialPower": "Expert archery and fighting skills"
-    },
-    {
-      "hero": {
-        "name": "Rocket Man",
-        "realName": "Elton John",
-        "specialPower": "Piano force"
-      },
-      "id": 18
-    },
-    {
-      "hero": {
-        "name": "Rocket Man",
-        "realName": "Elton John",
-        "specialPower": "Piano force"
-      },
-      "id": 19
-    },
-    {
-      "hero": {
-        "name": "Doc Octopus",
-        "realName": "Otto Octavious",
-        "specialPower": "its a octopus"
-      },
-      "id": 20
-    },
-    {
-      "hero": {
-        "name": "Kraven",
-        "realName": "Kraven the Hunter",
-        "specialPower": "beast power"
-      },
-      "id": 21
-    },
-    {
-      "hero": {
-        "name": "Fede",
-        "realName": "Federico",
-        "specialPower": "super strength"
-      },
-      "id": 22
-    },
-    {
-      "name": "Fede",
-      "realName": "asdasd",
-      "specialPower": "aaaaa",
-      "id": 23
     }
   ]
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { HeroesService } from '../../services/heroes.service';
 
 @Component({
@@ -9,14 +10,14 @@ import { HeroesService } from '../../services/heroes.service';
 })
 export class HeroComponent implements OnInit{
 
-  heroId: number | null = 0;
-  myForm: FormGroup;
+  heroId: number | null = null;
+  heroForm: FormGroup;
 
-  constructor(private fb: FormBuilder,private _heroesService:HeroesService) {
-    this.myForm = this.fb.group({
-      firstName: ['', Validators.required],
-      lastName: ['', Validators.required],
-      age: ['', [Validators.required, Validators.min(18)]]
+  constructor(private fb: FormBuilder,private _heroesService:HeroesService , private _snackBar: MatSnackBar) {
+    this.heroForm = this.fb.group({
+      name: ['', Validators.required],
+      realName: ['', Validators.required],
+      specialPower: ['', [Validators.required]]
     });
   }
 
@@ -24,15 +25,23 @@ export class HeroComponent implements OnInit{
     this.getHero()
   }  
 
-  submit() {
-    console.log(this.myForm.value);
+  submitForm() {
+    if(this.heroId || this.heroId==0){
+      this.updateHero()
+    }else{
+      this.createHero()
+    }
   }
 
   private getHero(){
-    if(this.heroId){
+    if(this.heroId || this.heroId==0){
       this._heroesService.getHero(this.heroId).subscribe(
         res=>{
-          console.log(res)
+          this.heroForm.patchValue({
+            name: res.name,
+            realName: res.realName,
+            specialPower: res.specialPower
+          });
         },
         err=>{
           console.log(err)
@@ -42,9 +51,9 @@ export class HeroComponent implements OnInit{
   }
 
   private createHero(){
-    this._heroesService.addHero(this.myForm.value).subscribe(
+    this._heroesService.addHero(this.heroForm.value).subscribe(
       res=>{
-        console.log(res)
+        this.openSnackBar("Hero created sucessfully","Ok")
       },
       err=>{
         console.log(err)
@@ -53,14 +62,18 @@ export class HeroComponent implements OnInit{
   }
 
   private updateHero(){
-    this._heroesService.updateHero(this.myForm.value).subscribe(
+    this._heroesService.updateHero(this.heroId ,this.heroForm.value).subscribe(
       res=>{
-        console.log(res)
+        this.openSnackBar("Hero updated sucessfully","Ok")
       },
       err=>{
         console.log(err)
       }
     )
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
   }
 
 }

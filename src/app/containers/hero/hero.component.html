@@ -1,20 +1,21 @@
-<div>
-    <form [formGroup]="myForm" (ngSubmit)="submit()">
+<div class="card">
+    <form [formGroup]="heroForm" (ngSubmit)="submitForm()">
+        <h1>{{heroId || heroId==0 ? 'Update Hero' : 'Create hero'}}</h1>
         <mat-form-field>
-            <mat-label>First Name</mat-label>
-            <input matInput formControlName="firstName" />
+            <mat-label>Name</mat-label>
+            <input matInput formControlName="name" />
         </mat-form-field>
         <mat-form-field>
-            <mat-label>Last Name</mat-label>
-            <input matInput formControlName="lastName" />
+            <mat-label>Real name</mat-label>
+            <input matInput formControlName="realName" />
         </mat-form-field>
         <mat-form-field>
-            <mat-label>Age</mat-label>
-            <input matInput type="number" formControlName="age" />
+            <mat-label>Superpower</mat-label>
+            <input matInput formControlName="specialPower" />
         </mat-form-field>
-        <button mat-fab extended color="primary" routerLink="/hero/0">
-        <mat-icon>add</mat-icon>
-        Add hero
-    </button>
+        <button mat-fab extended color="primary" [disabled]="!heroForm.valid">
+        <mat-icon>{{heroId || heroId==0 ? 'update' : 'add'}}</mat-icon>
+            {{heroId || heroId==0 ? 'Update hero' : 'Add hero'}}
+        </button>
     </form>
 </div>

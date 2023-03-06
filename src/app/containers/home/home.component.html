@@ -2,7 +2,7 @@
 
     <div class="searchbar">
         <app-search (searchQuery)="searchHeroes($event)" />
-        <button mat-fab extended color="primary" routerLink="/hero/0">
+        <button mat-fab extended color="primary" [routerLink]="['/hero', null]">
             <mat-icon>add</mat-icon>
             New hero
         </button>

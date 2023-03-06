@@ -1,59 +1,45 @@
-<ng-container *ngIf="isLoading; else loadedState">
-    <mat-progress-spinner color="warn" diameter="24" value="50"></mat-progress-spinner>
-</ng-container>
+<ng-container>
 
-<div class="mat-elevation-z8">
-    <ng-template #loadedState>
-        <table mat-table [dataSource]="heroesData">
+    <div class="spinner-container" *ngIf="isLoading">
+        <mat-spinner diameter="48" />
+    </div>
+    <table mat-table [dataSource]="heroesData" *ngIf="!isLoading">
 
-            <ng-container matColumnDef="position">
-                <th mat-header-cell *matHeaderCellDef> No. </th>
-                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-            </ng-container>
+        <ng-container matColumnDef="position">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+        </ng-container>
 
-            <ng-container matColumnDef="name">
-                <th mat-header-cell *matHeaderCellDef> Name </th>
-                <td mat-cell *matCellDef="let element"> {{element.name}} </td>
-            </ng-container>
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef> Name </th>
+            <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+        </ng-container>
 
-            <ng-container matColumnDef="realName">
-                <th mat-header-cell *matHeaderCellDef> Real name </th>
-                <td mat-cell *matCellDef="let element"> {{element.realName}} </td>
-            </ng-container>
+        <ng-container matColumnDef="realName">
+            <th mat-header-cell *matHeaderCellDef> Real name </th>
+            <td mat-cell *matCellDef="let element"> {{element.realName}} </td>
+        </ng-container>
 
-            <ng-container matColumnDef="specialPower">
-                <th mat-header-cell *matHeaderCellDef> Special power </th>
-                <td mat-cell *matCellDef="let element"> {{element.specialPower}} </td>
-            </ng-container>
+        <ng-container matColumnDef="specialPower">
+            <th mat-header-cell *matHeaderCellDef> Special power </th>
+            <td mat-cell *matCellDef="let element"> {{element.specialPower}} </td>
+        </ng-container>
 
-            <ng-container matColumnDef="actions">
-                <th mat-header-cell *matHeaderCellDef>Actions</th>
-                <td mat-cell *matCellDef="let element">
-                    <button mat-icon-button class="btn-edit" color="accent">
+        <ng-container matColumnDef="actions">
+            <th mat-header-cell *matHeaderCellDef>Actions</th>
+            <td mat-cell *matCellDef="let element">
+                <button mat-icon-button class="btn-edit" color="accent">
             <mat-icon>edit</mat-icon>
           </button>
-                    <button mat-icon-button color="warn">
+                <button mat-icon-button color="warn">
             <mat-icon>delete</mat-icon>
           </button>
-                </td>
-            </ng-container>
+            </td>
+        </ng-container>
 
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let element; columns: displayedColumns;"></tr>
 
+    </table>
 
-
-            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-            <tr mat-row *matRowDef="let element; columns: displayedColumns;"></tr>
-
-
-
-        </table>
-
-    </ng-template>
-
-
-    <mat-paginator [length]="totalHeroes" [pageSize]="pageSize" [pageSizeOptions]="[1,2,3]">
-    </mat-paginator>
-
-
-
-</div>
+</ng-container>

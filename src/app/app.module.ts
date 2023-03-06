@@ -8,30 +8,27 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NavbarComponent } from './layout/navbar/navbar.component';
 import { FooterComponent } from './layout/footer/footer.component';
-import { TableComponent } from './components/table/table.component';
-import { HomeComponent } from './containers/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 
 
 import { MaterialModule } from './material.module';
-import { SearchComponent } from './components/search/search.component';
+import { ContainerModule } from './containers/containers.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     FooterComponent,
-    TableComponent,
-    HomeComponent,
-    SearchComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ContainerModule,
     MaterialModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -38,6 +38,126 @@
             "height": 6,
             "weight": 150,
             "specialPower": "Super strength"
+        },
+        {
+            "id": 5,
+            "name": "The Flash",
+            "realName": "Barry Allen",
+            "height": 6.0,
+            "weight": 195,
+            "specialPower": "Super speed"
+        },
+        {
+            "id": 6,
+            "name": "Aquaman",
+            "realName": "Arthur Curry",
+            "height": 6.3,
+            "weight": 325,
+            "specialPower": "Marine telepathy"
+        },
+        {
+            "id": 7,
+            "name": "Captain America",
+            "realName": "Steve Rogers",
+            "height": 6.2,
+            "weight": 220,
+            "specialPower": "Super strength"
+        },
+        {
+            "id": 8,
+            "name": "Black Widow",
+            "realName": "Natasha Romanova",
+            "height": 5.7,
+            "weight": 135,
+            "specialPower": "Martial arts expert"
+        },
+        {
+            "id": 9,
+            "name": "Hulk",
+            "realName": "Bruce Banner",
+            "height": 7.0,
+            "weight": 985,
+            "specialPower": "Super strength"
+        },
+        {
+            "id": 10,
+            "name": "Green Lantern",
+            "realName": "Hal Jordan",
+            "height": 6.2,
+            "weight": 200,
+            "specialPower": "Ring of power"
+        },
+        {
+            "id": 11,
+            "name": "Thor",
+            "realName": "Thor Odinson",
+            "height": 6.6,
+            "weight": 640,
+            "specialPower": "Mjolnir hammer"
+        },
+        {
+            "id": 12,
+            "name": "Doctor Strange",
+            "realName": "Stephen Strange",
+            "height": 6.0,
+            "weight": 180,
+            "specialPower": "Mystical abilities"
+        },
+        {
+            "id": 13,
+            "name": "Black Panther",
+            "realName": "T'Challa",
+            "height": 6.0,
+            "weight": 200,
+            "specialPower": "Superhuman senses and agility"
+        },
+        {
+            "id": 14,
+            "name": "Catwoman",
+            "realName": "Selina Kyle",
+            "height": 5.7,
+            "weight": 135,
+            "specialPower": "Cat-like reflexes and senses"
+        },
+        {
+            "id": 15,
+            "name": "Wolverine",
+            "realName": "Logan",
+            "height": 5.3,
+            "weight": 195,
+            "specialPower": "Regeneration and adamantium claws"
+        },
+        {
+            "id": 16,
+            "name": "Deadpool",
+            "realName": "Wade Wilson",
+            "height": 6.2,
+            "weight": 210,
+            "specialPower": "Regeneration and fourth wall breaking"
+        },
+        {
+            "id": 17,
+            "name": "Green Arrow",
+            "realName": "Oliver Queen",
+            "height": 6.0,
+            "weight": 175,
+            "specialPower": "Expert archery and fighting skills"
+        },
+        {
+            "id": 18,
+            "name": "Cyborg",
+            "realName": "Victor Stone",
+            "height": 6.6,
+            "weight": 385,
+            "specialPower": "Advanced technology and cybernetic enhancements"
+        },
+        {
+            "id": 19,
+            "name": "The Vision",
+            "realName": "Vision",
+            "height": 6.3,
+            "weight": 300,
+            "specialPower": "Superhuman strength and intangibility"
         }
     ]
 }

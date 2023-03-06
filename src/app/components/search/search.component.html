@@ -1,11 +1,10 @@
-<mat-grid-list cols="6" rowHeight="3:1">
-    <mat-grid-tile>
-        <form class="example-form">
-            <mat-form-field class="example-full-width mat-margin" appearance="outline">
-                <mat-label>Superheroe</mat-label>
-                <input matInput placeholder="Ingrese su búsqueda">
-            </mat-form-field>
-        </form>
-        <button mat-raised-button color="primary" class="">Primary</button>
-    </mat-grid-tile>
-</mat-grid-list>
+<div>
+    <mat-form-field class="filter-input">
+        <mat-label>Search heroe</mat-label>
+        <input matInput type="text" [(ngModel)]="searchParams.name" (ngModelChange)="search(searchParams.name , 'name')" />
+    </mat-form-field>
+    <mat-form-field class="filter-input margin-x">
+        <mat-label>Search Id</mat-label>
+        <input matInput type="text" [(ngModel)]="searchParams.id" (ngModelChange)="search(searchParams.id , 'id')" />
+    </mat-form-field>
+</div>

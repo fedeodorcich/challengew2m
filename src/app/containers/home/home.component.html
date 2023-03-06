@@ -1,10 +1,17 @@
-<div style="padding:100px 50px">
+<div style="padding: 100px 50px">
 
-    <app-search></app-search>
+    <div class="searchbar">
+        <app-search (searchQuery)="searchHeroes($event)" />
+        <button mat-fab extended color="primary" routerLink="/hero/0">
+            <mat-icon>add</mat-icon>
+            New hero
+        </button>
+    </div>
 
-    <app-table [heroesData]="heroesData" [totalHeroes]="totalHeroes" [pageSize]="pageSize" [pageIndex]="pageIndex" />
+    <div class="mat-elevation-z8">
+        <app-table [heroesData]="paginateData()" [isLoading]="isLoading"></app-table>
 
-
-
-
+        <mat-paginator [length]="totalHeroes" [pageSize]="paginationData.pageSize" [pageIndex]="paginationData.pageIndex" [pageSizeOptions]="[5, 10, 20]" (page)="changePaginationData($event)">
+        </mat-paginator>
+    </div>
 </div>

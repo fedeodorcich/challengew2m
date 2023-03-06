@@ -4,6 +4,9 @@ import { Hero } from '../../models/hero-type';
 import { Pagination } from '../../models/pagination-type';
 import { SearchParams } from '../../models/search-type';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material/dialog';
+import { ModalComponent } from '../../components/modal/modal.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-home',
@@ -29,30 +32,28 @@ export class HomeComponent implements OnInit {
   searchNameParam: string = '';
   searchIdParam: string = '';
 
-  constructor(private _heroesService: HeroesService,private router:Router) {}
+  
+
+  constructor(private _heroesService: HeroesService, public dialog: MatDialog, private _snackBar: MatSnackBar) {}
 
   ngOnInit(): void {
     this.getHeroes();
   }
 
-  getHeroes() {
+  private getHeroes() {
     this.isLoading=true
     this._heroesService.getAllHeroes().subscribe(
       res => {
         this.heroesData = res;
         this.heroesDataFiltered = res;
         this.totalHeroes=res.length;
-        setTimeout(()=>{
+        setTimeout(()=>{ //agregué timeout solo para que se visualice el spinner
           this.isLoading=false
-        },1000)
+        },500)
         this.paginateData()
       },
       err => {console.log(err);this.isLoading=false}
     );
-  }
-
-  navigate(){
-    this.router.navigate(['hero'])
   }
 
   paginateData() {
@@ -89,4 +90,49 @@ export class HomeComponent implements OnInit {
     if (value.id=="" && value.name=="") this.heroesDataFiltered = this.heroesData;
     this.paginationData.pageIndex = 0;
   }
+
+
+  showDeleteModal(value:Hero){
+    this.openDialog('10ms','10ms',value)
+  }
+
+  openDialog(
+    enterAnimationDuration: string,
+    exitAnimationDuration: string,
+    hero: Hero
+  ): void {
+    let dialogRef = this.dialog.open(ModalComponent, {
+      width: '400px',
+      enterAnimationDuration,
+      exitAnimationDuration,
+    });
+    let instance = dialogRef.componentInstance;
+    instance.modelText = {
+      title: `Delete hero "${hero.name}"?`,
+      description: 'This option has no way back.',
+      buttonAccept: 'Delete',
+      buttonCancel: 'Cancel',
+    };
+    instance.dialogRef.afterClosed().subscribe((result: boolean) => {
+      if (result) this.deleteHero(hero.id)
+    });
+  }
+  
+
+
+  private deleteHero(heroId:number){
+    this._heroesService.deleteHero(heroId).subscribe(
+      res=>{
+      this.openSnackBar("Hero deleted", "Ok")
+      this.getHeroes()
+      },
+      err=>{this.openSnackBar("Error", "Ok")}
+    )
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
+  }
+
+  
 }

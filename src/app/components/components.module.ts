@@ -5,13 +5,15 @@ import { TableComponent } from './table/table.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { ModalComponent } from './modal/modal.component';
 
 
 
 @NgModule({
   declarations: [
     SearchComponent,
-    TableComponent
+    TableComponent,
+    ModalComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { FormsModule } from '@angular/forms';
   ],
   exports: [
     SearchComponent,
-    TableComponent
+    TableComponent,
+    ModalComponent
     ],
 })
 export class ComponentsModule { }

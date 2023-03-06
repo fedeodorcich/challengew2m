@@ -5,6 +5,8 @@ import { MaterialModule } from '../material.module';
 import { ComponentsModule } from '../components/components.module';
 import { AppRoutingModule } from '../app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 
 @NgModule({
@@ -12,11 +14,13 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     HeroComponent
   ],
-  imports: [
+  imports: [ 
     MaterialModule,
     ComponentsModule,
+    CommonModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    RouterModule
   ],
   exports: [
     HomeComponent,

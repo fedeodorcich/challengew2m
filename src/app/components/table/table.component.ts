@@ -1,5 +1,4 @@
-import { Component, Input } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Hero } from '../../models/hero-type';
 
 @Component({
@@ -12,8 +11,11 @@ export class TableComponent {
 
   
   @Input('heroesData') heroesData:Hero[]=[];
-   @Input('isLoading') isLoading:boolean=true;
+  @Input('isLoading') isLoading:boolean=true;
+  @Output() showDeleteModal = new EventEmitter<Hero>()
 
   displayedColumns: string[] = ['position', 'name', 'realName', 'specialPower','actions'];
+
+   setHero(hero:Hero){this.showDeleteModal.emit(hero)}
   
 }

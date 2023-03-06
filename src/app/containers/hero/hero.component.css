@@ -10,3 +10,7 @@ mat-form-field {
     margin-top: 1rem;
     width: 100
 }
+
+.margin-x {
+    margin: 0 .5rem;
+}

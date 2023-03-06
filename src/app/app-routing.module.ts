@@ -4,15 +4,27 @@ import { HomeComponent } from './containers/home/home.component';
 import { HeroComponent } from './containers/hero/hero.component';
 
 const routes: Routes = [
-  { path: 'home', component:HomeComponent},
-  { path: '**', redirectTo:'home' },
-  { path: '',pathMatch: 'full',redirectTo: 'home'},
-  { path: 'hero/:id?',component: HeroComponent,}
+  {
+    path: 'home',
+    component: HomeComponent,
+  },
+  {
+    path: 'hero/:id',
+    component: HeroComponent,
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'home',
+  },
+  {
+    path: '**',
+    redirectTo: 'home',
+  },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
-
+export class AppRoutingModule {}

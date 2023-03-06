@@ -13,9 +13,15 @@
             <mat-label>Superpower</mat-label>
             <input matInput formControlName="specialPower" />
         </mat-form-field>
-        <button mat-fab extended color="primary" [disabled]="!heroForm.valid">
-        <mat-icon>{{heroId || heroId==0 ? 'update' : 'add'}}</mat-icon>
-            {{heroId || heroId==0 ? 'Update hero' : 'Add hero'}}
-        </button>
+        <div>
+            <button mat-mini-fab color="accent" [routerLink]="['/home']">
+                <mat-icon>arrow_back</mat-icon>
+            </button>
+            <button mat-fab extended color="primary" class="margin-x" [disabled]="!heroForm.valid">
+                    <mat-icon>{{heroId || heroId==0 ? 'update' : 'add'}}</mat-icon>
+                        {{heroId || heroId==0 ? 'Update hero' : 'Add hero'}}
+            </button>
+        </div>
+
     </form>
 </div>

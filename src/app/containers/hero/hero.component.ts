@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { HeroesService } from '../../services/heroes.service';
 
@@ -13,7 +14,8 @@ export class HeroComponent implements OnInit{
   heroId: number | null = null;
   heroForm: FormGroup;
 
-  constructor(private fb: FormBuilder,private _heroesService:HeroesService , private _snackBar: MatSnackBar) {
+  constructor(private fb: FormBuilder,private _heroesService:HeroesService , private _snackBar: MatSnackBar ,  private activatedRoute: ActivatedRoute, private _router:Router) {
+    this.heroId = Number(this.activatedRoute.snapshot.paramMap.get('id')) ?? null;
     this.heroForm = this.fb.group({
       name: ['', Validators.required],
       realName: ['', Validators.required],
@@ -53,6 +55,7 @@ export class HeroComponent implements OnInit{
   private createHero(){
     this._heroesService.addHero(this.heroForm.value).subscribe(
       res=>{
+        this.heroForm.reset()
         this.openSnackBar("Hero created sucessfully","Ok")
       },
       err=>{
@@ -64,7 +67,8 @@ export class HeroComponent implements OnInit{
   private updateHero(){
     this._heroesService.updateHero(this.heroId ,this.heroForm.value).subscribe(
       res=>{
-        this.openSnackBar("Hero updated sucessfully","Ok")
+        this.openSnackBar("Hero updated sucessfully","Ok");
+        this._router.navigate(['/home']);
       },
       err=>{
         console.log(err)

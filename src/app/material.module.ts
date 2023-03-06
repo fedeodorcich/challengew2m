@@ -15,6 +15,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import {MatCardModule} from '@angular/material/card';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
+import { MatDialogModule } from '@angular/material/dialog';
 
 
 const materialModules = [
@@ -29,7 +30,8 @@ const materialModules = [
     MatGridListModule,
     MatProgressSpinnerModule,
     MatCardModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
   ];
 
 

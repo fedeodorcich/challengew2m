@@ -115,6 +115,20 @@
         "specialPower": "beast power"
       },
       "id": 21
+    },
+    {
+      "hero": {
+        "name": "Fede",
+        "realName": "Federico",
+        "specialPower": "super strength"
+      },
+      "id": 22
+    },
+    {
+      "name": "Fede",
+      "realName": "asdasd",
+      "specialPower": "aaaaa",
+      "id": 23
     }
   ]
 }
